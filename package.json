@@ -1,0 +1,82 @@
+{
+  "name": "@jsswpt/shoppe-ui-kit",
+  "main": "./dist/index.js",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "yarn@4.5.1",
+  "scripts": {
+    "watch": "storybook dev -p 3000",
+    "build": "tsc -b && vite build",
+    "build:storybook": "storybook build",
+    "fix:eslint": "yarn eslint . --fix --cache",
+    "fix:prettier": "yarn prettier . --write --cache",
+    "watch:nodemon": "nodemon --quiet --watch . -e js,json,ts,tsx,html,yml --exec",
+    "watch:eslint": "yarn watch:nodemon 'yarn fix:eslint'",
+    "watch:prettier": "yarn watch:nodemon 'yarn fix:prettier '",
+    "bump:major": "npm version major -m \"UI Kit version updated to v%s\"",
+    "bump:minor": "npm version minor -m \"UI Kit version updated to v%s\"",
+    "bump:patch": "npm version patch -m \"UI Kit version updated to v%s\"",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@types/node": "^22.9.0",
+    "glob": "^11.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup": "^4.24.4",
+    "vite-plugin-dts": "^4.3.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@eslint/js": "^9.14.0",
+    "@storybook/addon-essentials": "^8.4.2",
+    "@storybook/addon-interactions": "^8.4.2",
+    "@storybook/addon-onboarding": "^8.4.2",
+    "@storybook/blocks": "^8.4.2",
+    "@storybook/react": "^8.4.2",
+    "@storybook/react-vite": "^8.4.2",
+    "@storybook/test": "^8.4.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.14.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "eslint-plugin-sort": "^4.0.0",
+    "eslint-plugin-storybook": "^0.11.0",
+    "globals": "^15.12.0",
+    "husky": "^9.1.6",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "sass-embedded": "^1.80.6",
+    "storybook": "^8.4.2",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.13.0",
+    "vite": "^5.4.10"
+  },
+  "peerDependencies": {
+    "class-variance-authority": "^0.7.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ]
+}
